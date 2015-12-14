@@ -7,16 +7,21 @@
 //
 
 #import "ViewController.h"
+#import "MBProgressHUD+NJ.h"
 
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
+
 - (IBAction)endEditing:(id)sender {
     
 }
+
 - (IBAction)btnLogout:(id)sender {
+    
+    
     //构造url
     NSURL *url=[NSURL URLWithString:@"http://p.nju.edu.cn/portal_io/logout"];
     //构造request
@@ -35,15 +40,38 @@
     NSURLSession *session = [NSURLSession sharedSession];
     //task
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSLog(@"response : %@", response);
-        NSLog(@"error: %@",error);
-        NSLog(@"data: %@",data);
+   //     NSLog(@"response : %@", response);
+    //    NSLog(@"error: %@",error);
+        if(data){
+        NSDictionary *dict=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+
+            NSString *re_msg=[dict objectForKey:@"reply_msg"];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+                [MBProgressHUD showSuccess:re_msg];
+        
+            
+        });
+        }
+        else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD showError:@"喵～没有网络"];});
+        }
+        
     }];
     
     [task resume];
-
+   
+ 
 }
 - (IBAction)btnClicked:(id)sender {
+    NSUserDefaults* usersDefaults=[[NSUserDefaults alloc]initWithSuiteName:@"group.TodayBras"];
+    [usersDefaults setObject:self.username.text forKey:@"name"];
+    [usersDefaults setObject:self.password.text forKey:@"pwd"];
+    [usersDefaults setBool:YES forKey:@"UpdateSetting"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    
     //构造url
     NSURL *url=[NSURL URLWithString:@"http://p.nju.edu.cn/portal_io/login"];
     //构造request
@@ -69,19 +97,47 @@
     NSURLSession *session = [NSURLSession sharedSession];
     //task
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSLog(@"response : %@", response);
-        NSLog(@"error: %@",error);
-        NSLog(@"data: %@ %@ %@",str1,str2,bodyStr);
+  
         
-    }];
+        if(data){
+            NSDictionary *dict=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+         //   NSLog(@"%@",dict);
+          //  NSString *code=dict[@"reply_code"];
+            
+            int re_code=[dict[@"reply_code"] intValue];
+            NSString *re_msg=[dict objectForKey:@"reply_msg"];
+          
+            dispatch_async(dispatch_get_main_queue(), ^{
+
+            if(re_code==1){
+                [MBProgressHUD showSuccess:re_msg];
+            }
+            else{
+                [MBProgressHUD showError:re_msg];
+            }
+                
+                
+            });
+            
+        }
+        else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [MBProgressHUD showError:@"喵～没有网络"];});
+        }}];
     
     [task resume];
-    
 
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
+
+    NSUserDefaults* userDefaults=[[NSUserDefaults alloc]initWithSuiteName:@"group.TodayBras"];
+    self.username.text=[userDefaults objectForKey:@"name"];
+    self.password.text=[userDefaults objectForKey:@"pwd"];
+    
+    
     
     // Do any additional setup after loading the view, typically from a nib.
 }

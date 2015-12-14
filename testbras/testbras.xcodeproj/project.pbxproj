@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		186EF97B1C1EE0FE0032CE1F /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 186EF9761C1EE0FE0032CE1F /* MBProgressHUD.bundle */; };
+		186EF97C1C1EE0FE0032CE1F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 186EF9781C1EE0FE0032CE1F /* MBProgressHUD.m */; };
+		186EF97D1C1EE0FE0032CE1F /* MBProgressHUD+NJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 186EF97A1C1EE0FE0032CE1F /* MBProgressHUD+NJ.m */; };
 		18FD2ACE1C0F10EE00E4FC4A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD2ACD1C0F10EE00E4FC4A /* main.m */; };
 		18FD2AD11C0F10EE00E4FC4A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD2AD01C0F10EE00E4FC4A /* AppDelegate.m */; };
 		18FD2AD41C0F10EF00E4FC4A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FD2AD31C0F10EF00E4FC4A /* ViewController.m */; };
@@ -35,6 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		186EF9761C1EE0FE0032CE1F /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = MBProgressHUD.bundle; path = ../../../testbras/testbras/Library/MBProgressHUD/MBProgressHUD.bundle; sourceTree = "<group>"; };
+		186EF9771C1EE0FE0032CE1F /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = ../../../testbras/testbras/Library/MBProgressHUD/MBProgressHUD.h; sourceTree = "<group>"; };
+		186EF9781C1EE0FE0032CE1F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = ../../../testbras/testbras/Library/MBProgressHUD/MBProgressHUD.m; sourceTree = "<group>"; };
+		186EF9791C1EE0FE0032CE1F /* MBProgressHUD+NJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MBProgressHUD+NJ.h"; path = "../../../testbras/testbras/Library/MBProgressHUD/MBProgressHUD+NJ.h"; sourceTree = "<group>"; };
+		186EF97A1C1EE0FE0032CE1F /* MBProgressHUD+NJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MBProgressHUD+NJ.m"; path = "../../../testbras/testbras/Library/MBProgressHUD/MBProgressHUD+NJ.m"; sourceTree = "<group>"; };
 		18FD2AC91C0F10EE00E4FC4A /* testbras.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testbras.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18FD2ACD1C0F10EE00E4FC4A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		18FD2ACF1C0F10EE00E4FC4A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -78,6 +86,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		186EF9751C1EE0D10032CE1F /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				186EF9761C1EE0FE0032CE1F /* MBProgressHUD.bundle */,
+				186EF9771C1EE0FE0032CE1F /* MBProgressHUD.h */,
+				186EF9781C1EE0FE0032CE1F /* MBProgressHUD.m */,
+				186EF9791C1EE0FE0032CE1F /* MBProgressHUD+NJ.h */,
+				186EF97A1C1EE0FE0032CE1F /* MBProgressHUD+NJ.m */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
 		18FD2AC01C0F10EE00E4FC4A = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +121,7 @@
 		18FD2ACB1C0F10EE00E4FC4A /* testbras */ = {
 			isa = PBXGroup;
 			children = (
+				186EF9751C1EE0D10032CE1F /* Library */,
 				18FD2ACF1C0F10EE00E4FC4A /* AppDelegate.h */,
 				18FD2AD01C0F10EE00E4FC4A /* AppDelegate.m */,
 				18FD2AD21C0F10EF00E4FC4A /* ViewController.h */,
@@ -244,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18FD2ADC1C0F10F000E4FC4A /* LaunchScreen.storyboard in Resources */,
+				186EF97B1C1EE0FE0032CE1F /* MBProgressHUD.bundle in Resources */,
 				18FD2AD91C0F10F000E4FC4A /* Assets.xcassets in Resources */,
 				18FD2AD71C0F10F000E4FC4A /* Main.storyboard in Resources */,
 			);
@@ -271,8 +293,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				18FD2AD41C0F10EF00E4FC4A /* ViewController.m in Sources */,
+				186EF97D1C1EE0FE0032CE1F /* MBProgressHUD+NJ.m in Sources */,
 				18FD2AD11C0F10EE00E4FC4A /* AppDelegate.m in Sources */,
 				18FD2ACE1C0F10EE00E4FC4A /* main.m in Sources */,
+				186EF97C1C1EE0FE0032CE1F /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +522,7 @@
 				18FD2AF81C0F10F100E4FC4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18FD2AF91C0F10F100E4FC4A /* Build configuration list for PBXNativeTarget "testbrasTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +531,7 @@
 				18FD2AFB1C0F10F100E4FC4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18FD2AFC1C0F10F100E4FC4A /* Build configuration list for PBXNativeTarget "testbrasUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +540,7 @@
 				18FD2AFE1C0F10F100E4FC4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
