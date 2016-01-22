@@ -10,6 +10,8 @@
 #import "MBProgressHUD+NJ.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *login;
+@property (weak, nonatomic) IBOutlet UIButton *logout;
 
 @end
 
@@ -106,11 +108,12 @@
             
             int re_code=[dict[@"reply_code"] intValue];
             NSString *re_msg=[dict objectForKey:@"reply_msg"];
-          
+          //  NSLog(@"%d",re_code);
             dispatch_async(dispatch_get_main_queue(), ^{
 
-            if(re_code==1){
-                [MBProgressHUD showSuccess:re_msg];
+            if(re_code==1||re_code==6){
+               // [MBProgressHUD showSuccess:re_msg];
+                [self performSegueWithIdentifier:@"loginsuc" sender:@"B"];
             }
             else{
                 [MBProgressHUD showError:re_msg];
@@ -145,6 +148,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)logout:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
 @end
